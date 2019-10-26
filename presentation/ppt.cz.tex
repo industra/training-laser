@@ -1,0 +1,299 @@
+\documentclass[14pt]{beamer}
+%\usepackage{czech}
+\usepackage[utf8]{inputenc}
+
+\usepackage{utopia} %font utopia imported
+
+
+
+\usetheme{Madrid}
+\usecolortheme{default}
+
+\usepackage{pgfpages}
+
+\setbeameroption{hide notes} % pptnoteschange
+%\setbeameroption{show only notes} % Only notes
+%\setbeameroption{show notes on second screen=right} % Both
+
+%------------------------------------------------------------
+%This block of code defines the information to appear in the
+%Title page
+\title[Školení Laser] %optional
+{Školení Laser}
+
+\subtitle{Industra LABS Training Series}
+
+\author[Šimon Berka] % (optional)
+{Šimon Berka\inst{1} \and Industra LABS\inst{2}}
+
+
+
+\date[2019] % (optional)
+{2019}
+
+
+
+%End of title page configuration block
+%------------------------------------------------------------
+
+
+
+%------------------------------------------------------------
+%The next block of commands puts the table of contents at the 
+%beginning of each section and highlights the current section:
+
+\AtBeginSection[]
+{
+	\begin{frame}
+	\frametitle{Obsah školení}
+	\tableofcontents[currentsection]
+\end{frame}
+}
+%------------------------------------------------------------
+
+
+\begin{document}
+
+%The next statement creates the title page.
+\frame{\titlepage}
+
+
+%---------------------------------------------------------
+%This block of code is for the table of contents after
+%the title page
+\begin{frame}
+\frametitle{Obsah školení}
+\tableofcontents
+
+
+\note[item]{o bezpecnosti se nijak nevyjadřovat (je to nuda)}
+\end{frame}
+%---------------------------------------------------------
+
+\begin{frame}
+\frametitle{Ukázky}
+\centering
+\includegraphics[scale=0.25]{imgs/sample1.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ukázky}
+\centering
+\includegraphics[scale=0.16]{imgs/sample2.png}
+
+\note[item]{řez i gravírování jsou velmio přesné, nejde pouze o jednu čáru, při pečlivém nastavení lze dosáhnout různé tloušťky a hloubky čar}
+\note[item]{poslat ukázku ohebného bloku = lidi zaujme že je možné vytvořit ohebný předmět}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Individuální test laseru}
+\centering
+\includegraphics[scale=0.06]{imgs/approved.jpg}
+
+\note[item]{po skončení teoretické části si každý vyzkouší přípravu laseru a jeho použití}
+\end{frame}
+
+\section{Teorie}
+
+%---------------------------------------------------------
+%Changing visivility of the text
+\begin{frame}
+\frametitle{Laser}
+
+\begin{block}{ThunderLaser Nova63}
+\begin{itemize}
+\item řezání (line) a gravírování (fill) nekovů
+\item 120W CO$_{2}$ laser
+\item vodní chlazení
+%\item<2-> Text visible on slide 2
+%\item<3> Text visible on slides 3
+%\item<4-> Text visible on slide 4
+\end{itemize}
+\end{block}
+
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Komponenty laseru}
+\begin{itemize}
+	\item \textcolor{gray}{řídící elektronika}
+	\item \textcolor{gray}{optický rezonátor}
+	\item stůl
+	\item hlava
+
+	
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Komponenty laseru}
+\begin{itemize}
+	
+	\item vodní chlazení \textcolor{red}{(manuální ovládání)}
+	\item ofuk (air assist) \textcolor{green}{(automaticky zapnuto)}
+	\item odtah spalin \textcolor{green}{(automaticky zapnuto)}
+	
+\end{itemize}
+\end{frame}
+
+
+%%% workflow chart
+
+
+
+%%% workflow chart end
+
+
+
+%---------------------------------------------------------
+%%% Materials
+\begin{frame}
+\frametitle{Materiály}
+
+
+\begin{examples}{Povolené materiály}
+	\begin{itemize}
+		\item dřevo
+		\item HDF, MDF
+		\item překližka
+		\item plexisklo
+		\item karton, papír
+	\end{itemize}
+\end{examples}
+
+
+
+
+\end{frame}
+
+%%% materials - not allowed
+\begin{frame}
+\frametitle{Materiály}
+
+\begin{alertblock}{Zakázané materiály}
+	\begin{itemize}
+		\item materiály obsahující chlor (toxické výpary)
+		\item zrcadlo, měď (včetně PCB, odraz laseru zpět do zdroje)
+		\item hobbyglass
+		\item pěnové materiály (možno pod dohledem CORE)
+		\item ABS
+	\end{itemize}
+\end{alertblock}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Ovládací panel laseru}
+
+\centering
+\includegraphics[scale=0.2]{imgs/laser_cp.jpg}
+
+
+\note[item]{nijak nepopisovat, pouze říct že takto vypadá a zbytek při praktické ukázce}
+\end{frame}
+
+
+%% SECURITY
+\section{Bezpečnost}
+\begin{frame}
+\frametitle{Bezpečnost}
+
+\begin{itemize}
+	\item nedívejte se na pracující laser bez přestávek
+	\item mějte ruce mimo pracovní prostor laseru při pohybu stolu nebo laserové hlavy
+	\item nemanipulujte s částmi laseru (vyjma explicitně povolených, jako výměna laserové hlavy)
+\end{itemize}
+
+\begin{alertblock}{Použijte červené tlačítko STOP}
+	\begin{itemize}
+		\item v případě požáru
+		\item v případě neočekávaného chování/zvuků
+	\end{itemize}
+\end{alertblock}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Co je zakázáno}
+
+\begin{itemize}
+	\item vypínat ofuk
+	\item manipulovat s frekvencí laseru
+	\item ovládat laser z vašeho zařízení (na vlastním zařízení je možné připravit Job, ale provést jej je nutné přes naše PC, kvůli správnému nastavení a ovladačům)
+\end{itemize}
+
+
+\end{frame}
+
+
+
+\section{Live Demo (Software)}
+
+\begin{frame}
+\frametitle{LightBurn}
+
+\begin{itemize}
+	\item software pro ovládání laseru
+	\item jednoduché operace pro práci s vektorovou grafikou (tvary, text, skupiny, panelizace, bool operace, ...)
+	\item import .ai, .dxf, .svg, ... \textit{(vždy je lepší otestovat import na svém zařízení)}
+	\item manuální ovládání laseru (nepoužívat)
+	\item jednotlivé operace jsou definovány pomocí barev
+	\item simulátor
+\end{itemize}
+
+
+\note[item]{zvládá i PDF, občas}
+\end{frame}
+
+\begin{frame}
+\frametitle{Příklad}
+\centering
+\includegraphics[scale=0.5]{imgs/lb_example.png}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Operace}
+\centering
+\includegraphics[scale=0.7]{imgs/lb_colors.png}
+\note[item]{jedna barva = jedna operace}
+\note[item]{line = řez, line = engrave}
+\note[item]{output = daná barva bude odeslána do laseru}
+\note[item]{priorita - nejdříve engrave, poté cut, kvůli posunutí materiálu při odříznutí}
+\note[item]{tloušťka materiálu - není třeba používat}
+\end{frame}
+
+\begin{frame}
+\frametitle{Simulátor}
+\centering
+\includegraphics[scale=0.35]{imgs/lb_simulator.png}
+
+\note[item]{vždy dobré použít, předejdete chybám a ztrátě drahého materiálu}
+\note[item]{červená = pohyb}
+\note[item]{laser aktivní (nerozlišuje cut a engrave)}
+\note[item]{nastavení výkonu také závisí na stáří materiálu}
+\end{frame}
+
+
+
+
+
+
+
+\section{Live Demo (Hardware)}
+\begin{frame}
+\frametitle{Live Demo}
+\centering
+\scalebox{13}{$\leftarrow$}
+
+
+\end{frame}
+
+
+\end{document}

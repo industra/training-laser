@@ -1,0 +1,33 @@
+dist: xenial
+before_install:
+- sudo apt-get update && sudo apt-get install --no-install-recommends texlive-bibtex-extra
+  texlive-bibtex-extra texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra
+  texlive-latex-recommended dvipng texlive-publishers && sudo texhash
+script:
+- mkdir -p presentation/.build/notes
+- REVID=${TRAVIS_COMMIT:0:7}
+- BUILDCSTDATE=$(TZ="Europe/Prague" date +"%d-%h-%y, %H:%M:%S")
+- cd presentation/
+- pdflatex -output-directory .build ./ppt.tex
+- pdflatex -output-directory .build ./ppt.cz.tex
+- pdflatex -output-directory .build ./ppt.tex
+- pdflatex -output-directory .build ./ppt.cz.tex
+- sed -i -e "s/.*pptnoteschange/\\\setbeameroption{show only notes}/g" ./ppt.cz.tex
+- pdflatex -output-directory .build/notes ./ppt.cz.tex
+- pdflatex -output-directory .build/notes ./ppt.cz.tex
+- mv .build/notes/ppt.cz.pdf notes.cz.pdf
+- cd ../
+
+deploy:
+  provider: releases
+  api_key:
+    secure: bYHrvmBM5YP1X7S6ZGKzwaVIpt+nNnu24vVBeDqSp8by+p9aH/EncnU3JZmohCOphSYBitpt04nb3dK2j0Ms+tzYnd6E5EBqWa0d1o5rJE2C+SakQI4zo/HJZVTKcF7D7+cLhFY2Fa7cvsEtfZPucAdxBWyqjhrqemGyG6JAec2RW5Fs8hsmx+hu+omuZgl3tCdsM+1/Pq/DKx+gahhmlTeHjy9wGqCepADq3vbigOVWPLmMDLTwgOps1mw8RtgiF5XUNtyhyTZ2jI2d5xFp27WArzK/vjxnyO68KODNt1Ww5SsD53YnUTunU3E+hiuKB5yCh1JyAJTJvUhjJU549mUJMdQ6vI7pJCBUzPncKrsvx5EdH02akbqcr/jRXpwBWcq7LrB/eBreMGjFRv/gNl2TekAlNFnkwIXe9DYkrPHF5CQuBwO4YkVI0YPEWFcRwaMhNW+3VLcMZS0Ld01rFn2RVv0iJDL55QdBFYpPdRnLKT7NMZxgpgpQL7Tl8jjkVhzQDXLv4nkGE5dnkkIM2UuQc4fDxuY01rGOpBzZEJ2uKTP0Wq7SUWG5mfhYjvYKk7MrwvuudoLvTAj8XXGNZkI1OHtBOkoxjsAjCfp6nZidTzanwzGJ4nygG638WYTsVrYrHwnyxdUEQ9FFGKf9RCxoxFBz8IQmg6wTfMyJ9k4=
+  file: 
+    - "presentation/.build/ppt.pdf"
+    - "presentation/.build/ppt.cz.pdf"
+    - "presentation/notes.cz.pdf"
+  skip_cleanup: true
+  on:
+    repo: industra/manual-build1
+    branch: master
+    tags: true
