@@ -28,6 +28,6 @@ deploy:
     - "presentation/notes.cz.pdf"
   skip_cleanup: true
   on:
-    repo: industra/manual-build1
+    repo: industra/training-laser
     branch: master
     tags: true
